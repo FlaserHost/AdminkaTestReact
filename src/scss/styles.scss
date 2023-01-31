@@ -1,0 +1,324 @@
+@import 'mixins.scss';
+
+* {
+  @include standart(Calibri);
+}
+
+html, body, .main-content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+::placeholder {
+  color: #ccc;
+  transition: color .3s;
+}
+
+:focus::placeholder {
+  color: transparent;
+}
+
+.main-content {
+  padding: 10px;
+  background-color: #eee;
+  @include flex-position(center);
+
+  &__form-keeper {
+    width: 100%;
+    max-width: 725px;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #fff;
+
+    .main-content__form {
+      width: 100%;
+      height: 100%;
+
+      h3 {
+        padding-bottom: 15px;
+      }
+
+      .preview-limits,
+      .main-limits {
+        padding: 10px 0 20px;
+      }
+
+      .load-img {
+        display: none;
+      }
+
+      .custom-btn {
+        width: 130px;
+        height: 130px;
+        border-radius: 15px;
+        background-color: rgba(71, 171, 138, .1);
+        position: relative;
+        cursor: pointer;
+        color: #000;
+        overflow: hidden;
+        
+      & + .preview-limits,
+      & + .main-limits {
+          max-width: 219px;
+        }
+      }
+
+      .custom-btn-2 {
+        width: 260px;
+      }
+
+      .custom-btn.error {
+        background-color: rgba(255, 0, 0, .1);
+      }
+
+      .afore::before,
+      .afore::after,
+      .afore-error::before,
+      .afore-error::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 35px;
+        height: 2px;
+      }
+
+      .afore::after,
+      .afore-error::after {
+        transform-origin: left;
+        transform: rotate(90deg) translateX(-50%);
+      }
+
+      .afore::before,
+      .afore::after {
+        background-color: #47ab8a;
+      }
+
+      .afore-error::before,
+      .afore-error::after {
+        background-color: #f00;
+      }
+
+      .section-header,
+      .section-short-description {
+        display: block;
+        padding-left: 1px;
+        font-size: 14px;
+      }
+
+      .helper {
+        width: 100%;
+        position: relative;
+        margin: 7px 0 4px;
+      }
+
+      .letters-limit {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        font-size: 11px;
+        color: #ccc;
+      }
+
+      .news-input.empty-error {
+        border-color: red;
+      }
+
+      textarea.news-input {
+        padding: 10px 44px 10px 10px;
+        height: 65px;
+      }
+
+      .news-input {
+        width: 100%;
+        height: 40px;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        font-size: 17px;
+        padding: 0 40px 0 10px;
+        background-color: transparent;
+        outline: none;
+        position: relative;
+        transition: border-color .3s;
+      }
+
+      .current-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .note-placeholder {
+        color: #ccc;
+        font-size: 17px;
+      }
+
+      .note-editor.note-airframe,
+      .note-editor.note-frame {
+        border: 2px solid #eee;
+        border-radius: 12px;
+        margin-bottom: 45px;
+      }
+
+      .main-text-section > .helper > .letters-limit {
+        bottom: 15px;
+      }
+
+      .main-text-label > h3 {
+        padding-bottom: 7px;
+      }
+      
+      .toggle-section {
+        padding-top: 42px;
+      }
+
+      .toggle-section__toggle {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+      }
+
+      .toggle-section__toggle-label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 35px;
+        height: 20px;
+        background-color: #ddd;
+        display: block;
+        border-radius: 100px;
+        position: relative;
+      }
+
+      .toggle-section__toggle-label::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: ease .3s;
+      }
+
+      .toggle-section__toggle:checked + .toggle-section__toggle-label {
+        background-color: #47ab8a;
+      }
+
+      .toggle-section__toggle:checked
+      + .toggle-section__toggle-label:after {
+        left: calc(100% - 2px);
+        transform: translateX(-100%);
+      }
+
+      .toggle-section__toggle-label:active:after {
+        width: 20px;
+      }
+
+      .title-label {
+        display: flex;
+      }
+
+      .title-label span {
+        order: 1;
+        margin-left: 16px;
+        font-weight: 900;
+      }
+
+      .buttons {
+        @include flex-position(center, center);
+        margin-top: 70px;
+        padding: 10px 30px;
+        border-top: 2px solid #eee;
+
+        .form-btn {
+          width: 110px;
+          padding: 8px 6px;
+          outline: none;
+          border: none;
+          background-color: rgba(71, 171, 138, 0.1);
+          border-radius: 6px;
+          color: #47ab8a;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        .form-btn:first-child {
+          margin-right: auto;
+        }
+
+        .form-btn:last-child {
+          background-color: #47ab8a;
+          color: #fff;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
+
+.news-main ~ section {
+  padding-bottom: 22px;
+}
+
+.corrector {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.error-description {
+  color: red;
+}
+
+.ql-toolbar.ql-snow {
+  border-radius: 12px 12px 0 0;
+  border-color: #ccc;
+  background-color: #eee;
+}
+
+.ql-container.ql-snow {
+  border-radius: 0 0 12px 12px;
+  border-color: #ccc;
+}
+
+.ql-toolbar.ql-snow {
+  button {
+    background-color: #fff;
+  }
+
+  .ql-bold,
+  .ql-list,
+  .ql-link {
+    border-right: 1px solid #ccc;
+  }
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before,
+.quill > .ql-container > .ql-editor.ql-blank > p,
+.ql-editor {
+  font-size: 17px;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  font-style: normal;
+  color: #ccc;
+  transition: color .3s;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank:focus::before {
+  color: transparent;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank > p,
+.ql-editor > p {
+  padding-top: 1px;
+  height: 100%;
+  min-height: 125px;
+}

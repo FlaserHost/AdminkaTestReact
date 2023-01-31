@@ -1,0 +1,21 @@
+@mixin standart($font: false) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  @if $font {
+    font-family: $font, sans-serif;
+  }
+}
+
+@mixin flex-position($horizontal: false, $vertical: false) {
+  display: flex;
+
+  @if $horizontal {
+    justify-content: $horizontal;
+  }
+
+  @if $vertical {
+    align-items: $vertical;
+  }
+}
